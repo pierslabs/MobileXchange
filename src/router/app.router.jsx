@@ -1,7 +1,7 @@
 import ProductApp from '../ProductApp';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import ListView from '../products/views/ListView';
-import ProductView from '../products/views/ProductView';
+import ListView from '../views/ListView';
+import ProductView from '../views/ProductView';
 
 export const router = createBrowserRouter([
   {
