@@ -4,7 +4,7 @@ import ProductItem from '../components/productItem/ProductItem';
 import Search from '../components/search/Search';
 import EmptyState from '../components/emptystate/EmtyState';
 import useFetch from '../hooks/useFetch';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import Loader from '../components/loader/Loader';
 
 const ListView = () => {
   const { products, isLoading, error } = useFetch({
@@ -25,9 +25,7 @@ const ListView = () => {
   return (
     <div className='p-3'>
       <Search setSearchText={setSearchText} searchText={searchText} />
-      {isLoading && (
-        <AiOutlineLoading3Quarters className='animate-spin  text-blue-500 text-4xl' />
-      )}
+      {isLoading && <Loader />}
       {!filteredProducts.length && !isLoading && (
         <EmptyState
           message={`${
