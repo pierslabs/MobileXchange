@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react';
-import { productsApi } from '../api/products.api';
+import { useState } from 'react';
+
 import ProductItem from '../components/productItem/ProductItem';
 import Search from '../components/search/Search';
 import EmptyState from '../components/emptystate/EmtyState';
+import useFetch from '../hooks/useFetch';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 const ListView = () => {
-  const [products, setProducts] = useState([]);
+  const { products, isLoading, error } = useFetch({
+    url: '/product',
+    label: 'products',
+  });
   const [searchText, setSearchText] = useState('');
 
   const filteredProducts = searchText
@@ -17,16 +22,19 @@ const ListView = () => {
       })
     : products;
 
-  useEffect(() => {
-    productsApi.get('/product').then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
-
   return (
     <div className='p-3'>
       <Search setSearchText={setSearchText} searchText={searchText} />
-      {!filteredProducts.length && <EmptyState message='No hay productos' />}
+      {isLoading && (
+        <AiOutlineLoading3Quarters className='animate-spin  text-blue-500 text-4xl' />
+      )}
+      {!filteredProducts.length && !isLoading && (
+        <EmptyState
+          message={`${
+            error ? 'Error al cargar los productos' : 'No hay productos'
+          }`}
+        />
+      )}
       <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {filteredProducts.map((product) => (
           <ProductItem key={product.id} product={product} />
