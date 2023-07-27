@@ -12,13 +12,11 @@ const useFetch = ({ url, label }) => {
     isLoading,
     error,
     status,
-    isStale,
   } = useQuery({
     queryKey: [label],
     queryFn: getProducts,
     staleTime: 1000 * 60 * 60, // 1h
   });
-  console.log({ data, isLoading, error, status, isStale });
   return { products: data, isLoading, error, status };
 };
 
