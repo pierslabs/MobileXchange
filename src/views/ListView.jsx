@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ProductItem from '../components/productItem/ProductItem';
 import Search from '../components/search/Search';
@@ -21,6 +21,22 @@ const ListView = () => {
         );
       })
     : products;
+
+  useEffect(() => {
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('show', entry.isIntersecting);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  }, [products, filteredProducts]);
 
   return (
     <div className='p-3'>
