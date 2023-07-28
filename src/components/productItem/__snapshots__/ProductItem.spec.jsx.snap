@@ -6,11 +6,12 @@ exports[`ProductItem > should render correctly 1`] = `
   "baseElement": <body>
     <div>
       <a
-        class="flex flex-col justify-center items-center bg-white p-4 shadow-md rounded-lg transition-transform transform-gpu hover:scale-105 "
+        class="flex flex-col justify-center items-center bg-white p-4 shadow-md rounded-lg transition-transform transform-gpu hover:scale-105 card "
         href="/products/product/1"
       >
         <img
           alt="iPhone 12"
+          loading="lazy"
           src="https://via.placeholder.com/150"
         />
         <h3
@@ -33,11 +34,12 @@ exports[`ProductItem > should render correctly 1`] = `
   </body>,
   "container": <div>
     <a
-      class="flex flex-col justify-center items-center bg-white p-4 shadow-md rounded-lg transition-transform transform-gpu hover:scale-105 "
+      class="flex flex-col justify-center items-center bg-white p-4 shadow-md rounded-lg transition-transform transform-gpu hover:scale-105 card "
       href="/products/product/1"
     >
       <img
         alt="iPhone 12"
+        loading="lazy"
         src="https://via.placeholder.com/150"
       />
       <h3
