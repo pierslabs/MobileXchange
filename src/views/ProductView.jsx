@@ -3,12 +3,13 @@ import useFetch from '../hooks/useFetch';
 import Loader from '../components/loader/Loader';
 import Image from '../components/product-image/Image';
 import ProductDetail from '../components/product-detail/ProductDetail';
+import EmptyState from '../components/emptystate/EmtyState';
 
 const ProductView = () => {
   const params = useParams();
 
   const {
-    products = [],
+    data: product,
     isLoading,
     error,
   } = useFetch({
@@ -17,20 +18,26 @@ const ProductView = () => {
     stale: true,
   });
 
-  console.log(products, isLoading, error);
-
   return (
     <div className='container mx-auto px-4 py-8 '>
       {isLoading && <Loader />}
-      <Link to='/products/list' className='text-blue-500 hover:text-blue-600'>
-        Back to Products
+
+      <Link to='/products/list' className='text-blue-500 hover:text-blue-600 '>
+        Back to Product
       </Link>
-      <div className='flex justify-evenly  '>
+      {!product && !isLoading && (
+        <EmptyState
+          message={`${
+            error ? 'Error al cargar el producto' : 'No hay producto'
+          }`}
+        />
+      )}
+      <div className='flex justify-around flex-wrap mt-10'>
         <div className='sm:w-96'>
-          <Image url={products.imgUrl} alt={products.name} />
+          <Image url={product.imgUrl} alt={product.brand} />
         </div>
 
-        <ProductDetail product={products} />
+        <ProductDetail product={product} />
       </div>
     </div>
   );
