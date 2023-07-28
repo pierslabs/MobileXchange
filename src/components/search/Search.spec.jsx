@@ -13,8 +13,6 @@ describe('Search Component', () => {
       <Search setSearchText={setSearchText} searchText={searchText} />
     );
 
-    sut.debug();
-
     const inputElement = sut.getByPlaceholderText('Buscar productos...');
 
     expect(inputElement).toBeInTheDocument();
