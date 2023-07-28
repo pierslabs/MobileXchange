@@ -29,8 +29,8 @@ const ProductView = () => {
           }`}
         />
       )}
-      {!isLoading && (
-        <>
+      {!isLoading && product && (
+        <div>
           <Link
             to='/products/list'
             className='text-blue-500 hover:text-blue-600 '
@@ -43,7 +43,7 @@ const ProductView = () => {
             </div>
             <ProductDetail product={product} />
           </div>
-        </>
+        </div>
       )}
     </div>
   );
