@@ -22,9 +22,6 @@ const ProductView = () => {
     <div className='container mx-auto px-4 py-8 '>
       {isLoading && <Loader />}
 
-      <Link to='/products/list' className='text-blue-500 hover:text-blue-600 '>
-        Back to Product
-      </Link>
       {!product && !isLoading && (
         <EmptyState
           message={`${
@@ -32,13 +29,22 @@ const ProductView = () => {
           }`}
         />
       )}
-      <div className='flex justify-around flex-wrap mt-10'>
-        <div className='sm:w-96'>
-          <Image url={product.imgUrl} alt={product.brand} />
-        </div>
-
-        <ProductDetail product={product} />
-      </div>
+      {!isLoading && (
+        <>
+          <Link
+            to='/products/list'
+            className='text-blue-500 hover:text-blue-600 '
+          >
+            Back to Product
+          </Link>
+          <div className='flex justify-around flex-wrap mt-10'>
+            <div className='sm:w-96'>
+              <Image url={product.imgUrl} alt={product.brand} />
+            </div>
+            <ProductDetail product={product} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
