@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import EmptyState from '../emptystate/EmtyState';
 import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai';
 import useProductDetail from './useProductDetail';
+import { formatPrice } from '../../utils/price.utils';
 
 const ProductDetail = ({ product }) => {
-  const { formatPrice, transformProduct, price, randomReviews } =
-    useProductDetail({ product });
+  const { transformProduct, price, randomReviews } = useProductDetail({
+    product,
+  });
 
   return (
     <div className='border p-4 shadow-xl'>
@@ -37,7 +39,7 @@ const ProductDetail = ({ product }) => {
         </div>
       </div>
 
-      <ul key={product.id} className='mb-6 mt-8'>
+      <ul key={transformProduct.id} className='mb-6 mt-8'>
         {!transformProduct.price ? (
           <EmptyState message='Producto no disponible' />
         ) : (
@@ -64,10 +66,10 @@ ProductDetail.propTypes = {
     price: PropTypes.string,
     cpu: PropTypes.string,
     ram: PropTypes.string,
-    os: PropTypes.string,
+    os: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
     displayResolution: PropTypes.string,
     battery: PropTypes.string,
-    primaryCamera: PropTypes.arrayOf(PropTypes.string),
+    primaryCamera: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
     dimentions: PropTypes.string,
     weight: PropTypes.string,
   }).isRequired,
