@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { formatPrice } from '../../utils/priceTransfoorms';
+import { formatPrice } from '../../utils/price.utils';
 
 const ProductItem = ({ product }) => {
   const price = product.price * 1.2;
