@@ -5,7 +5,7 @@ const ProductItem = ({ product }) => {
   return (
     <Link
       to={`/products/product/${product.id}`}
-      className='flex flex-col justify-center items-center bg-white p-4 shadow-md rounded-lg transition-transform transform-gpu hover:scale-105 card '
+      className='flex flex-col justify-center items-center border p-4 shadow-lg rounded-lg transition-transform  hover:scale-105 card '
     >
       <img src={product.imgUrl} alt={product.model} loading='lazy' />
       <h3 className='text-lg font-semibold'>{product.brand}</h3>
