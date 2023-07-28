@@ -10,6 +10,7 @@ const ListView = () => {
   const { products, isLoading, error } = useFetch({
     url: '/product',
     label: 'products',
+    stale: true,
   });
   const [searchText, setSearchText] = useState('');
 
