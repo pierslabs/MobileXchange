@@ -2,7 +2,7 @@ import { productsApi } from '../api/products.api';
 import { useQuery } from '@tanstack/react-query';
 
 const useFetch = ({ url, label, stale }) => {
-  const getProducts = async () => {
+  const getData = async () => {
     const { data } = await productsApi.get(url);
     return data;
   };
@@ -14,10 +14,10 @@ const useFetch = ({ url, label, stale }) => {
     status,
   } = useQuery({
     queryKey: [label],
-    queryFn: getProducts,
+    queryFn: getData,
     staleTime: stale ? 1000 * 60 * 60 : null, // 1h
   });
-  return { products: data, isLoading, error, status };
+  return { data, isLoading, error, status };
 };
 
 export default useFetch;

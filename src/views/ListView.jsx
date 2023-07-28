@@ -7,7 +7,11 @@ import useFetch from '../hooks/useFetch';
 import Loader from '../components/loader/Loader';
 
 const ListView = () => {
-  const { products, isLoading, error } = useFetch({
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useFetch({
     url: '/product',
     label: 'products',
     stale: true,
