@@ -20,7 +20,7 @@ const ProductView = () => {
   });
 
   return (
-    <div className='container mx-auto px-4 py-8 mt-[50px]'>
+    <div className='container mx-auto px-4 mt-[90px]'>
       {isLoading && <Loader />}
 
       {!product && !isLoading && (
@@ -34,11 +34,11 @@ const ProductView = () => {
         <div>
           <Link
             to='/products/list'
-            className='text-blue-500 hover:text-blue-600'
+            className='text-blue-500 hover:text-blue-600 absolute hover:bg-orange-500 mr-auto top-12 mt-3 sm:left-5  border-orange-400 border p-2 transition-all duration-150 -skew-x-12 font-medium'
           >
-            Back to Product
+            Back to Product List
           </Link>
-          <div className='flex justify-around flex-wrap mt-10'>
+          <div className='flex justify-around flex-wrap mt-32'>
             <div className='sm:w-96 mt-5'>
               <Image url={product.imgUrl} alt={product.brand} />
             </div>
