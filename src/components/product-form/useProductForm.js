@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { productsApi } from '../../api/products.api';
+import { toast } from 'react-toastify';
 
 const useProductForm = ({ product }) => {
   const [selectedOptions, setSelectedOptions] = useState({
@@ -20,8 +21,9 @@ const useProductForm = ({ product }) => {
         storageCode: selectedOptions.storage,
         colorCode: selectedOptions.color,
       });
-      console.log(data);
+      toast.success('Product added to cart');
     } catch (error) {
+      toast.error('Error adding product to cart');
       console.log(error);
     } finally {
       setLoading(false);
