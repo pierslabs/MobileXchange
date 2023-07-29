@@ -4,9 +4,10 @@ export const calculatePricePlusPercent = (price) => {
 };
 
 export const formatPrice = (price) => {
-  if (typeof price === 'string') {
-    price = parseInt(price);
-  }
+  if (!price) price = 0;
+
+  if (typeof price === 'string') price = parseInt(price);
+
   return price.toLocaleString('es-ES', {
     style: 'currency',
     currency: 'EUR',

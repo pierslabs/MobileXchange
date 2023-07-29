@@ -19,11 +19,18 @@ const ProductItem = ({ product }) => {
           </span>
         </p>
       </div>
+      {!price && (
+        <div className='relative text-gray-900 text-center w-full '>
+          <p className=' absolute top-20 left-[10%] right-[10%] font-semibold text-xl'>
+            Producto no disponible
+          </p>
+        </div>
+      )}
       <img
         src={product.imgUrl}
         alt={product.model}
         loading='lazy'
-        className='mx-auto w-auto h-auto'
+        className={`mx-auto w-auto h-auto ${!price && 'opacity-30'} `}
       />
       <div className='sm:flex text-center text-sm items-center justify-between mt-10 flex-wrap w-full'>
         <h3 className='sm:text-xl '>{product.model}</h3>
