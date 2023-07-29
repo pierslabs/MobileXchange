@@ -29,7 +29,7 @@ exports[`ProductItem > should render correctly 1`] = `
         </div>
         <img
           alt="iPhone 12"
-          class="mx-auto w-auto h-auto"
+          class="mx-auto w-auto h-auto false "
           loading="lazy"
           src="https://via.placeholder.com/150"
         />
@@ -75,7 +75,7 @@ exports[`ProductItem > should render correctly 1`] = `
       </div>
       <img
         alt="iPhone 12"
-        class="mx-auto w-auto h-auto"
+        class="mx-auto w-auto h-auto false "
         loading="lazy"
         src="https://via.placeholder.com/150"
       />

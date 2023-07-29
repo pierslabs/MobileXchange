@@ -45,11 +45,10 @@ const ListView = () => {
 
   return (
     <div className='p-3 container mx-auto '>
-      {isLoading && <Loader />}
       <div className='border-b-2 sm:p-2 px-10'>
         <Search setSearchText={setSearchText} searchText={searchText} />
       </div>
-
+      {isLoading && <Loader />}
       {!filteredProducts.length && !isLoading && (
         <EmptyState
           message={`${
