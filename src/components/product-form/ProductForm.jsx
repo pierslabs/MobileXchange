@@ -10,8 +10,14 @@ const ProductForm = ({ product }) => {
     handleStorageSelection,
     loading,
   } = useProductForm({ product });
+
   return (
-    <form onSubmit={handleAddToCart} className='flex flex-col mt-8 gap-5'>
+    <form
+      onSubmit={handleAddToCart}
+      className={`flex flex-col mt-8 gap-5 p-2 ${
+        !product.price ? 'pointer-events-none opacity-40 bg-gray-50 ' : ''
+      }`}
+    >
       <div>
         <label className='text-xl'>Ram:</label>
         <div className='flex justify-start mt-2 gap-2'>
@@ -70,5 +76,6 @@ ProductForm.propTypes = {
     id: PropTypes.string,
     internalMemory: PropTypes.arrayOf(PropTypes.string),
     colors: PropTypes.arrayOf(PropTypes.string),
+    price: PropTypes.number,
   }).isRequired,
 };
