@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ProductAppContext } from '../../context/ProductAppContext';
 import { productsApi } from '../../api/products.api';
 import { toast } from 'react-toastify';
 
 const useProductForm = ({ product }) => {
+  const { handleCart } = useContext(ProductAppContext);
+
   const [selectedOptions, setSelectedOptions] = useState({
     storage: null,
     color: null,
@@ -15,15 +18,28 @@ const useProductForm = ({ product }) => {
     e.preventDefault();
     console.log('selectedOptions', selectedOptions);
 
+    if (!selectedOptions.storage || !selectedOptions.color) {
+      toast.error('Please select storage and color', {
+        position: 'top-center',
+      });
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data } = await productsApi.post('/cart', {
         id: product.id,
         storageCode: selectedOptions.storage,
         colorCode: selectedOptions.color,
       });
-      toast.success('Product added to cart');
+      handleCart(data.count);
+      toast.success('Product added to cart', {
+        position: 'top-center',
+      });
     } catch (error) {
-      toast.error('Error adding product to cart');
+      toast.error('Error adding product to cart', {
+        position: 'top-center',
+      });
       console.log(error);
     } finally {
       setLoading(false);
