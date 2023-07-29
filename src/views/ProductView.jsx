@@ -4,6 +4,7 @@ import Loader from '../components/loader/Loader';
 import Image from '../components/product-image/Image';
 import ProductDetail from '../components/product-detail/ProductDetail';
 import EmptyState from '../components/emptystate/EmtyState';
+import ProductForm from '../components/product-form/ProductForm';
 
 const ProductView = () => {
   const params = useParams();
@@ -41,7 +42,12 @@ const ProductView = () => {
             <div className='sm:w-96'>
               <Image url={product.imgUrl} alt={product.brand} />
             </div>
-            <ProductDetail product={product} />
+            <div className='min-w-[40%]'>
+              <ProductDetail product={product} />
+              <div className='border-b-2 border-orange-500 mt-10 '></div>
+              <ProductForm product={product} />
+              <div className='border-b-2 border-orange-500 mt-10'></div>
+            </div>
           </div>
         </div>
       )}
