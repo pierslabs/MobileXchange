@@ -5,7 +5,7 @@ const EmptyState = ({ message }) => {
   return (
     <div className='flex flex-col items-center justify-center py-8 sm:mt-[20%] text-gray-500 text-lg'>
       <AiOutlineInbox size={100} />
-      <p>{message}</p>
+      <p data-testId='empty-state-message'>{message || 'No Data'}</p>
     </div>
   );
 };
@@ -13,5 +13,5 @@ const EmptyState = ({ message }) => {
 export default EmptyState;
 
 EmptyState.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
 };
