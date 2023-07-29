@@ -10,7 +10,7 @@ const ProductDetail = ({ product }) => {
   });
 
   return (
-    <div className='border p-4 shadow-xl'>
+    <div className='border p-4 shadow-xl min-w-[40%] h-[45vh]'>
       <div className=' border-b-2 p-2 text-gray-700'>
         <div className='flex justify-between items-stretch text-xl border-b-2 p-2'>
           <h3>{transformProduct.brand}</h3>
@@ -29,7 +29,7 @@ const ProductDetail = ({ product }) => {
             </span>
           </p>
         </div>
-        <div className='flex mt-6 items-center  '>
+        <div className='flex mt-6 items-center'>
           <AiTwotoneStar size={17} color='orange' />
           <AiTwotoneStar size={17} color='orange' />
           <AiTwotoneStar size={17} color='orange' />
