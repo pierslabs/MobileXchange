@@ -11,17 +11,17 @@ const useProductDetail = ({ product }) => {
   const randomReviews = getRandomNumber();
 
   const transformProduct = {
-    brand: product.brand,
-    model: product.model,
-    price: parseInt(product.price),
-    cpu: product.cpu,
-    ram: product.ram,
-    os: product.os,
-    displayResolution: product.displayResolution,
-    battery: product.battery,
-    primaryCamera: product.primaryCamera,
-    dimentions: product.dimentions,
-    weight: product.weight,
+    Brand: product.brand,
+    Model: product.model,
+    Price: parseInt(product.price),
+    CPU: product.cpu,
+    RAM: product.ram,
+    ['O.S.']: product.os,
+    ['Display resolution']: product.displayResolution,
+    Battery: product.battery,
+    ['Primary camera']: product.primaryCamera,
+    Dimentions: product.dimentions,
+    Weight: product.weight,
   };
 
   const price = calculatePricePlusPercent(product.price);
