@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 
 const Search = ({ setSearchText, searchText }) => {
   return (
-    <div className='flex justify-end ml-auto m-3'>
+    <div className='container bg-white flex justify-center md:justify-end fixed p-3 sm:pt-6 mt-[35px] z-10'>
       <input
         type='text'
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder='Buscar productos...'
-        className='border p-2 rounded'
+        className='border p-2 rounded border-orange-500 '
       />
     </div>
   );
