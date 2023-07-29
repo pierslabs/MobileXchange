@@ -38,12 +38,11 @@ const ProductDetail = ({ product }) => {
         </div>
       </div>
 
-      <ul key={transformProduct.id} className='mb-6 mt-8'>
+      <ul key={transformProduct.id} className='mb-6 mt-8 container'>
         {Object.keys(transformProduct).map((key) => {
           return (
-            <li key={key} className='m-3'>
-              <strong className='ml-2'>{key}:</strong>{' '}
-              {transformProduct[key] || 'N/A'}
+            <li key={key} className='m-1'>
+              <strong>{key}:</strong> {transformProduct[key] || 'N/A'}
             </li>
           );
         })}

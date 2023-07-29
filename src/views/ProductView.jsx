@@ -34,7 +34,7 @@ const ProductView = () => {
         <div>
           <Link
             to='/products/list'
-            className='text-blue-500 hover:text-blue-600 absolute hover:bg-orange-500 mr-auto top-12 mt-3 sm:left-5  border-orange-400 border p-2 transition-all duration-150 -skew-x-12 font-medium'
+            className='text-blue-500 hover:text-blue-600 absolute bg-orange-400 sm:hover:bg-orange-500 sm:bg-white mr-auto top-12 mt-3 sm:left-5  border-orange-400 border p-2 transition-all duration-150 -skew-x-12 font-medium '
           >
             Back to Product List
           </Link>

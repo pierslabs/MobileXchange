@@ -44,7 +44,7 @@ const ListView = () => {
   }, [products, filteredProducts]);
 
   return (
-    <div className='p-3 container mx-auto '>
+    <div>
       <Search setSearchText={setSearchText} searchText={searchText} />
       {isLoading && <Loader />}
       {!filteredProducts.length && !isLoading && (
@@ -55,7 +55,7 @@ const ListView = () => {
         />
       )}
 
-      <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto mt-[150px]'>
+      <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto mt-[150px] p-2'>
         {filteredProducts.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
