@@ -45,7 +45,7 @@ const ListView = () => {
 
   return (
     <div className='p-3 container mx-auto '>
-      <div className='border-b-2 sm:p-2 px-10'>
+      <div className='border-b-2 sm:p-2 px-10 mt-[50px]'>
         <Search setSearchText={setSearchText} searchText={searchText} />
       </div>
       {isLoading && <Loader />}

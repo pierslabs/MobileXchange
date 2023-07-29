@@ -10,7 +10,7 @@ const ProductDetail = ({ product }) => {
   });
 
   return (
-    <div className='border p-4 shadow-xl min-w-[40%] h-[45vh] '>
+    <div className='border p-4 shadow-xl min-w-[40%] sm:h-[45vh] '>
       <div className=' border-b-2 p-2 text-gray-700'>
         <div className='flex justify-between items-stretch text-xl border-b-2 p-2'>
           <h3>{transformProduct.brand}</h3>
