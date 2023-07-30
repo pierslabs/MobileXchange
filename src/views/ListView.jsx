@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
 import ProductItem from '../components/productItem/ProductItem';
@@ -5,6 +6,7 @@ import Search from '../components/search/Search';
 import EmptyState from '../components/emptystate/EmtyState';
 import useFetch from '../hooks/useFetch';
 import Loader from '../components/loader/Loader';
+import useObserver from '../hooks/useObserver';
 
 const ListView = () => {
   const {
@@ -16,6 +18,7 @@ const ListView = () => {
     label: 'products',
     stale: true,
   });
+  const { observer } = useObserver();
   const [searchText, setSearchText] = useState('');
 
   const filteredProducts = searchText
@@ -29,15 +32,6 @@ const ListView = () => {
 
   useEffect(() => {
     const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle('show', entry.isIntersecting);
-        });
-      },
-      { threshold: 0.2 }
-    );
-
     cards.forEach((card) => {
       observer.observe(card);
     });
