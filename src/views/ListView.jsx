@@ -47,13 +47,15 @@ const ListView = () => {
     <div>
       <Search setSearchText={setSearchText} searchText={searchText} />
       {isLoading && <Loader />}
-      {!filteredProducts.length && !isLoading && (
-        <EmptyState
-          message={`${
-            error ? 'Error al cargar los productos' : 'No hay productos'
-          }`}
-        />
-      )}
+      <div className='mt-[150px]'>
+        {!filteredProducts.length && !isLoading && (
+          <EmptyState
+            message={`${
+              error ? 'Error al cargar los productos' : 'No hay productos'
+            }`}
+          />
+        )}
+      </div>
 
       <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto mt-[150px] p-2'>
         {filteredProducts.map((product) => (
