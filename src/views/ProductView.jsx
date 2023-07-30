@@ -26,7 +26,7 @@ const ProductView = () => {
       {!product && !isLoading && (
         <EmptyState
           message={`${
-            error ? 'Error al cargar el producto' : 'No hay producto'
+            error ? 'Error loading products' : 'Error loading products'
           }`}
         />
       )}

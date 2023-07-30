@@ -45,7 +45,9 @@ const ListView = () => {
         {!filteredProducts.length && !isLoading && (
           <EmptyState
             message={`${
-              error ? 'Error al cargar los productos' : 'No hay productos'
+              error
+                ? 'Error loading products'
+                : `There are no products with brand or model "${searchText}"`
             }`}
           />
         )}

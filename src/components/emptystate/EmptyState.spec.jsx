@@ -4,7 +4,7 @@ import EmptyState from './EmtyState';
 
 describe('<EmptyState>', () => {
   it('should render the component with message prop', () => {
-    const message = 'No hay productos';
+    const message = 'No products found';
     const sut = render(<EmptyState message={message} />);
 
     const p = sut.getAllByTestId('empty-state-message');
