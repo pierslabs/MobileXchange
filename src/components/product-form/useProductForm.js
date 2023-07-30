@@ -47,11 +47,9 @@ const useProductForm = ({ product }) => {
   };
 
   const handleStorageSelection = (option) => {
-    console.log('handleStorageSelection');
     setSelectedOptions({ ...selectedOptions, storage: option });
   };
   const handleColorSelection = (option) => {
-    console.log('handleColorSelection');
     setSelectedOptions({ ...selectedOptions, color: option });
   };
 
