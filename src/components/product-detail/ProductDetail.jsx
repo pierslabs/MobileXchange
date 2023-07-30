@@ -55,9 +55,9 @@ export default ProductDetail;
 
 ProductDetail.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string,
-    brand: PropTypes.string,
-    model: PropTypes.string,
-    price: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
   }).isRequired,
 };
