@@ -1,4 +1,4 @@
-# MobileXchange - Aplicación de Vntercambio de Dispositivos Móviles
+# MobileXchange - Aplicación de Venta de Dispositivos Móviles
 
 MobileXchange es una aplicación **TEST** con React y Vite que permite a los usuarios comprar dispositivos móviles.
 
