@@ -41,7 +41,7 @@ const ListView = () => {
     <div>
       <Search setSearchText={setSearchText} searchText={searchText} />
       {isLoading && <Loader />}
-      <div className='mt-[150px]'>
+      <div>
         {!filteredProducts.length && !isLoading && (
           <EmptyState
             message={`${
@@ -53,7 +53,7 @@ const ListView = () => {
         )}
       </div>
 
-      <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto mt-[150px] p-2'>
+      <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto p-2'>
         {filteredProducts.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
