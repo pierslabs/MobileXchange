@@ -12,6 +12,7 @@ export const ProductAppContext = createContext(null);
 const ProductAppProvider = ({ children }) => {
   const initialCartValue = parseInt(localStorage.getItem('cart')) || 0;
   const [cartProducts, setCartProducts] = useState(initialCartValue);
+  const [lastProductViewed, setLastProductViewed] = useState(null);
 
   const handleCart = useCallback((product) => {
     setCartProducts((prevCart) => {
@@ -19,12 +20,18 @@ const ProductAppProvider = ({ children }) => {
     });
   }, []);
 
+  const handleProductViewed = useCallback((productId) => {
+    setLastProductViewed(productId);
+  }, []);
+
   const values = useMemo(() => {
     return {
       cartProducts,
       handleCart,
+      handleProductViewed,
+      lastProductViewed,
     };
-  }, [cartProducts, handleCart]);
+  }, [cartProducts, handleCart, handleProductViewed, lastProductViewed]);
 
   useEffect(() => {
     localStorage.setItem('cart', cartProducts.toString());

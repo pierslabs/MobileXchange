@@ -76,6 +76,6 @@ ProductForm.propTypes = {
     id: PropTypes.string,
     internalMemory: PropTypes.arrayOf(PropTypes.string),
     colors: PropTypes.arrayOf(PropTypes.string),
-    price: PropTypes.number,
+    price: PropTypes.string,
   }).isRequired,
 };

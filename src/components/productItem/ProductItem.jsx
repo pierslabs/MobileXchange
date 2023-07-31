@@ -1,15 +1,19 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { formatPrice } from '../../utils/price.utils';
+import { useContext } from 'react';
+import { ProductAppContext } from '../../context/ProductAppContext';
 
 const ProductItem = ({ product }) => {
+  const { handleProductViewed } = useContext(ProductAppContext);
   const price = product.price * 1.2;
   return (
     <Link
       to={`/products/product/${product.id}`}
       className='items-center border p-4 shadow-lg rounded-lg transition-transform  hover:scale-105 card overflow-hidden '
+      onClick={() => handleProductViewed(product.id)}
     >
-      <div className='flex justify-between items-baseline mb-3'>
+      <div className='flex justify-between items-center mb-3'>
         <h3 className='sm:text-2xl  text-gray-700 sm:-rotate-45 text-center underline'>
           {product.brand}
         </h3>
