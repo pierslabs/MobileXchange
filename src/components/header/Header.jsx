@@ -1,40 +1,84 @@
 import { Link, NavLink } from 'react-router-dom';
 import ShopppingBag from '../shopping-bag/ShopppingBag';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ProductAppContext } from '../../context/ProductAppContext';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Header = () => {
   const { lastProductViewed } = useContext(ProductAppContext);
+  const [visible, setVisible] = useState(true);
+
+  const handleVisible = () => {
+    setVisible(!visible);
+  };
   return (
-    <header className='flex justify-between items-center bg-gradient-to-r from-blue-500 to-purple-400 px-6 py-2 text-white text-center fixed w-full z-50  top-0 left-0'>
-      <h1 className='text-2xl  m-1'>
+    <nav
+      className='
+      flex flex-wrap
+      items-baseline
+      justify-between
+      w-full
+      py-3
+      px-4
+      bg-zinc-900
+      opacity-90  text-white sticky top-0 z-10'
+    >
+      <div>
         <Link to='/'>MobileXchange</Link>
-      </h1>
-
-      <div className='flex justify-between items-baseline gap-5 w-auto'>
-        <NavLink
-          to='/products/list'
-          className={({ isActive, isPending }) =>
-            isPending ? 'pending' : isActive ? 'text-blue-700' : ''
-          }
-        >
-          Products
-        </NavLink>
-        {lastProductViewed && (
-          <NavLink
-            to={`/products/product/${lastProductViewed}`}
-            className={({ isActive, isPending }) =>
-              isPending ? 'pending' : isActive ? 'text-blue-500' : ''
-            }
-          >
-            Last Product
-          </NavLink>
-        )}
-        {!lastProductViewed && <p>Last Product</p>}
-
-        <ShopppingBag />
       </div>
-    </header>
+
+      <button onClick={handleVisible}>
+        <GiHamburgerMenu
+          className=' top-3
+         text-2xl text-gray-500 cursor-pointer md:hidden '
+        />
+      </button>
+
+      <div
+        className={`${
+          visible ? 'hidden' : ''
+        } w-full md:flex md:items-base md:w-auto gap-7 `}
+        id='menu'
+      >
+        <ul
+          className='
+        pt-4
+        text-base text-gray-500
+        flex
+        justify-between 
+        md:pt-0 
+        gap-5'
+        >
+          <li>
+            <NavLink
+              to='/products/list'
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'text-blue-700' : ''
+              }
+            >
+              {' '}
+              Products
+            </NavLink>
+          </li>
+          <li>
+            {lastProductViewed && (
+              <NavLink
+                to={`/products/product/${lastProductViewed}`}
+                className={({ isActive, isPending }) =>
+                  isPending ? 'pending' : isActive ? 'text-blue-500' : ''
+                }
+              >
+                Last Product
+              </NavLink>
+            )}
+            {!lastProductViewed && <p>Last Product</p>}
+          </li>
+          <li>
+            <ShopppingBag />
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 export default Header;
