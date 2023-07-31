@@ -1,7 +1,17 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import ProductItem from './ProductItem';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+
+vi.mock('react', async () => {
+  const actual = await vi.importActual('react');
+  return {
+    ...actual,
+    useContext: () => ({
+      handleProductViewed: vi.fn(),
+    }),
+  };
+});
 
 describe('ProductItem', () => {
   it('should render correctly', () => {

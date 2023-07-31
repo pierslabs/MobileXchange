@@ -10,7 +10,7 @@ exports[`ProductItem > should render correctly 1`] = `
         href="/products/product/1"
       >
         <div
-          class="flex justify-between items-baseline mb-3"
+          class="flex justify-between items-center mb-3"
         >
           <h3
             class="sm:text-2xl  text-gray-700 sm:-rotate-45 text-center underline"
@@ -56,7 +56,7 @@ exports[`ProductItem > should render correctly 1`] = `
       href="/products/product/1"
     >
       <div
-        class="flex justify-between items-baseline mb-3"
+        class="flex justify-between items-center mb-3"
       >
         <h3
           class="sm:text-2xl  text-gray-700 sm:-rotate-45 text-center underline"
