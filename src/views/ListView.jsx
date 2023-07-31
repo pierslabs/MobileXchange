@@ -38,7 +38,7 @@ const ListView = () => {
   }, [products, filteredProducts]);
 
   return (
-    <div>
+    <div className='mt-[90px]'>
       <Search setSearchText={setSearchText} searchText={searchText} />
       {isLoading && <Loader />}
       <div>

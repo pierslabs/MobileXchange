@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Search = ({ setSearchText, searchText }) => {
   return (
-    <div className='bg-white flex justify-center md:justify-end fixed  p-6 sm:pt-6  z-10 border w-full'>
+    <div className='bg-white flex justify-center md:justify-end fixed  p-6 py-4 sm:pt-6  z-10 border w-full -mt-[90px]'>
       <input
         type='text'
         value={searchText}

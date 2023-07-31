@@ -10,7 +10,7 @@ const ProductItem = ({ product }) => {
   return (
     <Link
       to={`/products/product/${product.id}`}
-      className='items-center border p-4 shadow-lg rounded-lg transition-transform  hover:scale-105 card overflow-hidden '
+      className='items-center border p-4 shadow-lg rounded-lg transition-transform  hover:scale-105 card overflow-hidden'
       onClick={() => handleProductViewed(product.id)}
     >
       <div className='flex justify-between items-center mb-3'>
